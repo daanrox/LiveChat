@@ -7,6 +7,8 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         outline: 0;
         border: none;
+
+        
     }
     body, html{        
         height: 100vh;
@@ -35,6 +37,9 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }   
 
+    
+
+
     :root{
         --font-inter: 'Inter', sans-serif;
 
@@ -42,8 +47,25 @@ export const GlobalStyles = createGlobalStyle`
         --color-black: #363636;
         --color-white: #ffffff;
         --color-gray: #F3F3F3;
+        --color-gray2: #E4E4E4;
         --color-blue: #55A3FF;
     } 
 
 
+  ::-webkit-scrollbar {
+    width: 8px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-gray2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary); 
+    border-radius: 6px; 
+  }
+
+  
+  scrollbar-width: thin; 
+  scrollbar-color: var(--color-primary) var(--color-gray2);
 `;
