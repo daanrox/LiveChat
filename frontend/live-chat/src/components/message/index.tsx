@@ -5,10 +5,22 @@ import {
   StyledChatInformation,
 } from "./styles";
 import { IoMdMale, IoMdFemale, IoMdSend,  } from "react-icons/io";
+import { v4 as uuidv4 } from 'uuid';
+
+interface IMessage{
+  nickName: string,
+  gender: string,
+  message: string
+}
+
 
 export const Message = () => {
   const messageContainerRef = useRef<HTMLDivElement>(null);
-  const [checkGenderSelected, setCheckGenderSelected] = useState<string | null>(null);
+  const [talkMessages, setTalkMessages] = useState<IMessage[]>([])
+  const [nickName, setNickName] = useState<string | null>(null);
+  const [checkGenderSelected, setCheckgenderSelected] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
+
 
   useEffect(() => {
     scrollToBottom();
@@ -23,29 +35,39 @@ export const Message = () => {
 
 
   const buttonSex = (gender: string) => {
-    if (checkGenderSelected === gender) {
-      setCheckGenderSelected(null);
-    } else {
-      setCheckGenderSelected(gender);
-    }
+      setCheckgenderSelected(gender);
   };
+
+  const submitMessage = () =>{
+    const messageData: IMessage = {
+      nickName: nickName!,
+      gender: checkGenderSelected!,
+      message: message!,
+    }
+
+    console.log(messageData)
+  }
+
+  
   return (
     <>
       <StyledMessageContainer ref={messageContainerRef}>
-        <StyledMessage>
-          <h3>Roberta</h3>
-          <p>Oi, tudo bem com você?</p>
-        </StyledMessage>
 
-        <StyledMessage>
-          <h3>Daanrox</h3>
-          <p>Estou ótimo, e você?</p>
-        </StyledMessage>
+        { talkMessages.map((message)=>{
+          return(
+            <StyledMessage key={uuidv4()}>
+              <h3>{message.nickName}</h3>
+              <p>{message.message}</p>
+            </StyledMessage>
+          )
+        })
+
+        }
       </StyledMessageContainer>
       <StyledChatInformation>
       <div className="chatInfo">
           <label htmlFor="name">Nome</label>
-          <input type="text" id="name" placeholder="Digite seu nome" />
+          <input type="text" id="name" placeholder="Digite seu nome" onChange={(e)=>{setNickName(e.target.value)}}/>
           <div className="selectSex">
             <button
               className={`male ${checkGenderSelected === "male" ? "maleChecked" : ""}`}
@@ -63,8 +85,12 @@ export const Message = () => {
         </div>
 
         <div className="chatMessage">
-            <textarea  placeholder="Digite sua mensagem"></textarea>
-            <button><IoMdSend/></button>
+            <textarea  placeholder="Digite sua mensagem" onChange={(e)=>{setMessage(e.target.value)}}></textarea>
+            <button onClick={()=>{
+              if(nickName && message){
+                submitMessage()
+              }
+            }}><IoMdSend/></button>
         </div>
       </StyledChatInformation>
 

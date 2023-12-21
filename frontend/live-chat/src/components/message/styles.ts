@@ -7,8 +7,9 @@ export const StyledMessageContainer = styled.div`
   gap: 1rem;
   height: 75%;
   overflow-y: scroll;
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0.6rem 1rem 0;
   margin-bottom: 1rem;
+  overflow-x: hidden;
 `;
 
 export const StyledMessage = styled.div`
@@ -25,6 +26,7 @@ export const StyledMessage = styled.div`
 
   p {
     font-size: 1.2rem;
+    width: 100%;
   }
 `;
 
