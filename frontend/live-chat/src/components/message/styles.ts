@@ -10,6 +10,13 @@ export const StyledMessageContainer = styled.div`
   padding: 1rem 0.6rem 1rem 0;
   margin-bottom: 1rem;
   overflow-x: hidden;
+
+
+  @media (max-width: 480px){
+    height: 70%;
+
+  
+}
 `;
 
 interface StyledMessageProps {
@@ -43,6 +50,14 @@ gap: 1rem;
 justify-content:space-between ;
 flex-wrap: wrap;
 
+
+@media (max-width: 480px){
+  width: 100%;
+
+
+}
+
+
   .chatInfo {
     display: flex;
     flex-direction: column;
@@ -52,6 +67,26 @@ flex-wrap: wrap;
     height: 9rem;
     max-width: 20rem;
     gap: 1rem;
+
+    @media (max-width: 480px) {
+      padding: 0.5rem;
+      gap: 0.5rem;
+      height: 5.5rem;
+      flex-wrap: wrap;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      input[type="text"]{
+        max-width: 200px;
+      }
+
+      .selectSex{
+        height: 2rem;
+      }
+
+    }
 
     label {
       font-size: 1.2rem;
@@ -120,6 +155,14 @@ flex-wrap: wrap;
     display: flex;
     align-items: center;
     gap: 0.6rem;
+
+
+    @media (max-width: 480px){
+      height: 4rem;
+      width: 100%;
+
+  
+}
 
     textarea{
         width: 90%;

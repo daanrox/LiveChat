@@ -28,7 +28,7 @@ export const Message = () => {
 
 
   useEffect(() => {
-    socketRef.current = io('http://localhost:3001');
+    socketRef.current = io('https://livechat-8a7m.onrender.com');
 
     return () => {
       if (socketRef.current) {
