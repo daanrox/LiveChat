@@ -8,19 +8,17 @@ const app = express();
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST'],
+  credentials: true,
 }));
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  next();
-});
+
 
 const server = http.createServer(app);
 const io = new Server(server, {
   path: '/socket.io',
   cors: {
     origin: '*',
-    methods: ['GET', 'POST']
+    methods: ['GET', 'POST'],
+    credentials: true,
   }
 });
 
@@ -46,7 +44,7 @@ io.on('connection', (socket: Socket) => {
   });
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

@@ -9,20 +9,17 @@ const http_1 = __importDefault(require("http"));
 const socket_io_1 = require("socket.io");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: '*',
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST'],
+    credentials: true,
 }));
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    next();
-});
 const server = http_1.default.createServer(app);
 const io = new socket_io_1.Server(server, {
     path: '/socket.io',
     cors: {
-        origin: '*',
-        methods: ['GET', 'POST']
+        origin: 'http://localhost:5173',
+        methods: ['GET', 'POST'],
+        credentials: true,
     }
 });
 io.on('connection', (socket) => {
@@ -35,7 +32,7 @@ io.on('connection', (socket) => {
         console.log('User disconnected');
     });
 });
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
