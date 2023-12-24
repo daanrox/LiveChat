@@ -12,7 +12,11 @@ export const StyledMessageContainer = styled.div`
   overflow-x: hidden;
 `;
 
-export const StyledMessage = styled.div`
+interface StyledMessageProps {
+  color: string;
+}
+
+export const StyledMessage = styled.div<StyledMessageProps>`
   padding: 1rem;
   background-color: var(--color-gray2);
   width: 100%;
@@ -22,6 +26,8 @@ export const StyledMessage = styled.div`
 
   h3 {
     font-size: 1.2rem;
+    color: ${(props) =>
+    props.color === 'male' ? 'blue' : props.color === 'female' ? '#FF1493' : 'var(--color-gray2)'};
   }
 
   p {
