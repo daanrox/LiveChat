@@ -61,6 +61,10 @@ export const Message = () => {
     }
   };
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [talkMessages]);
+
 
   const getCurrentDateTime = (): string => {
     const currentDate = new Date();

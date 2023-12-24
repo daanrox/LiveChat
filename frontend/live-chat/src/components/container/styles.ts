@@ -9,6 +9,6 @@ export const StyledContainer = styled.div`
     padding: 1rem;
 
     @media (max-width: 480px) {
-        height: 70vh;
+        height: 78vh;
     }
 `

@@ -13,7 +13,7 @@ export const StyledMessageContainer = styled.div`
 
 
   @media (max-width: 480px){
-    height: 70%;
+    height: 75%;
 
   
 }
