@@ -31,6 +31,19 @@ export const StyledMessage = styled.div<StyledMessageProps>`
   flex-direction: column;
   gap: 0.5rem;
 
+  div{
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+      font-size: 0.9rem;
+      text-align: end;
+      color: gray;
+    }
+  }
   h3 {
     font-size: 1.2rem;
     color: ${(props) =>
@@ -38,7 +51,7 @@ export const StyledMessage = styled.div<StyledMessageProps>`
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     width: 100%;
   }
 `;

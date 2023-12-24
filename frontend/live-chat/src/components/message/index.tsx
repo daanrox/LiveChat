@@ -101,7 +101,10 @@ export const Message = () => {
         { talkMessages.map((message)=>{
           return(
             <StyledMessage key={uuidv4()} color={message.gender}>
-              <h3>{message.nickName}</h3>
+              <div className="messageHeader">
+                <h3>{message.nickName}</h3>
+                <p>{message.date}</p>
+              </div>
               <p>{message.message}</p>
             </StyledMessage>
           )
