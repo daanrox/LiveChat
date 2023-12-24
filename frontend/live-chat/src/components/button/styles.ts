@@ -13,4 +13,11 @@ export const StyledButton = styled.button`
         opacity: 0.8;
     }
 
+    @media (max-width:480px) {
+        padding: 0.5rem;
+        font-size: 1.05rem;
+        width: 80%;
+        max-width: 8rem;
+    }
+
 `

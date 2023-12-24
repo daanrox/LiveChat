@@ -126,10 +126,12 @@ export const Message = () => {
         </div>
 
         <div className="chatMessage">
-            <textarea  placeholder="Digite sua mensagem" onChange={(e)=>{setMessage(e.target.value)}}></textarea>
+            <textarea  placeholder="Digite sua mensagem" value={message || ''} onChange={(e)=>{setMessage(e.target.value)}}></textarea>
             <button onClick={()=>{
               if(nickName && message){
                 submitMessage()
+                setMessage('')
+                
               }
             }}><IoMdSend/></button>
         </div>

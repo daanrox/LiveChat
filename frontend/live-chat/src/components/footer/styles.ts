@@ -10,6 +10,7 @@ export const StyledFooter = styled.footer`
         align-items: center;
         justify-content: center;
         height: 100%;
+        margin-top: 24px;
         p{
             font-size: 1.4rem;
             font-weight: 500;

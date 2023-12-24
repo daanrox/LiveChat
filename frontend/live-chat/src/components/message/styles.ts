@@ -53,8 +53,7 @@ flex-wrap: wrap;
 
 @media (max-width: 480px){
   width: 100%;
-
-
+  height: 3rem;
 }
 
 
@@ -71,19 +70,18 @@ flex-wrap: wrap;
     @media (max-width: 480px) {
       padding: 0.5rem;
       gap: 0.5rem;
-      height: 5.5rem;
-      flex-wrap: wrap;
+      height: 4rem;
       width: 100%;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+
+      label{
+        display: none;
+      }
 
       input[type="text"]{
         max-width: 200px;
-      }
-
-      .selectSex{
-        height: 2rem;
       }
 
     }
@@ -103,6 +101,14 @@ flex-wrap: wrap;
       display: flex;
       justify-content: left;
       gap: 2rem;
+
+
+      @media (max-width:480px) {
+
+        justify-content: right;
+        gap: 0.5rem;
+      }
+
 
     .male{
         svg{
@@ -142,6 +148,14 @@ flex-wrap: wrap;
           font-size: 2rem;
           position: relative;
           color: var(--color-black);
+        }
+
+        @media (max-width: 480px) {
+          padding: 0.2rem 0.6rem;
+          
+          svg{
+            font-size: 1.5rem;
+          }
         }
 
       }

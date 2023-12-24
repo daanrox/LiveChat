@@ -8,4 +8,7 @@ export const StyledContainer = styled.div`
     border-radius: 0.6rem;
     padding: 1rem;
 
+    @media (max-width: 480px) {
+        height: 70vh;
+    }
 `
